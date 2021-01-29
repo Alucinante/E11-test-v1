@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+:root {
+    /* Fonts */
+    --font-family: 'Roboto', sans-serif;
+    --font-size-xs: 1rem;
+    --font-size-sm: 1.5rem;
+    --font-size-md: 1.375rem;
+    --font-size-lg: 2rem;
+    --light: 300;
+    --bold: 500;
+
+    /* Sizes */
+    --gap-xl: 4rem;
+    --gap-lg: 3.2rem;
+    --gap-md: 1.6rem;
+    --gap-sm: 1rem;
+
+    /* Colors */
+    --gray: #636e7b;
+    --light-gray: #8f939e;
+    --dark: #1d2939;
+    --black: #000;
+    --light: #e4e7ea;
+    --white: #FFF;
+    --blue: #428bca;
+    --light-blue: #95a7bf;
+    --dark-blue: #357ebd;
+
+    /* Animation */
+    --hover-transition: 150ms ease;
+}
+[data-theme="light"] {
+    --gray: #888;
+    --light-gray: #ccc;
+    --dark: #333;
+    --black: #ccc;
+    --light: #e4e7ea;
+    --white: #999;
+    --blue: #428bca;
+    --light-blue: #f7f7f7;
+    --dark-blue: #357ebd;
+}
+/* Responsive */
+$breakpoint-tablet: 768px;
+
+@import "layout.scss";

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E11 test</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="app open">
+		<div class="sidebar">
+			<h2 class="sub-title">Left panel</h2>
+			<ul class="list">
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+				<li><a href="#">Item list</a></li>
+			</ul>
+			<button class="btn add-item">Add item</button>
+		</div>
+		<div class="main-panel">
+			<header class="header">
+				<div class="content">
+					<div><button class="toggle-btn"><i class="fa fa-bars"></i></button></div>
+					<nav class="nav">
+						<ul>
+							<li class="nav-item"><a href="#">Link 1</a></li>
+							<li class="nav-item"><a href="#">Link 2</a></li>
+							<li class="nav-item"><a href="#">Link 3</a></li>
+						</ul>
+					</nav>
+					<div class="profile">
+						<img src="https://picsum.photos/seed/picsum/30" alt="">
+						<span>Tim Burton</span>
+					</div>
+				</div>
+			</header>
+			<section class="section">
+				<div class="section-header">
+					<h1 class="title">Content (Fill content, scrollable)</h1>
+					<div class="theme-switch-wrapper">
+						<label class="theme-switch" for="checkbox">
+						 <input type="checkbox" id="checkbox" />
+						 <div class="slider round"></div>
+						   </label>
+						 <em>Enable light Mode</em>
+				   </div>
+				</div>
+
+				<div class="media">
+					<div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+					</div>
+					<figure>
+						<img src="https://picsum.photos/id/10/400/250" alt="">
+					</figure>
+				</div>
+				<div class="media">
+					<figure>
+						<img src="https://picsum.photos/id/10/400/250" alt="">
+					</figure>
+					<div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+					</div>
+				</div>
+				<div class="media">
+					<div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+					</div>
+					<figure>
+						<img src="https://picsum.photos/id/10/400/250" alt="">
+					</figure>
+				</div>
+				<div class="media">
+					<figure>
+						<img src="https://picsum.photos/id/10/400/250" alt="">
+					</figure>
+					<div>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quia tenetur maiores commodi, vero veniam aperiam cum! Laboriosam quam et consequatur repudiandae officiis, quasi pariatur a sequi, totam non nulla.</p>
+					</div>
+				</div>
+			</section>
+			<footer class="footer">
+				<div class="container">
+					<p>Copyright 2021</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+					<p><a href="#">mail@mail.com</a></p>
+				</div>
+			</footer>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var app = document.querySelector('.app');
+		var sidebar = document.querySelector('.sidebar');
+		var toggles = document.querySelectorAll('.toggle-btn');
+		for (var i = 0; i < toggles.length; i++) {
+			toggles[i].addEventListener('click', function() {
+				app.classList.toggle('open');
+			});
+		}
+
+		//Add item
+		$(".add-item").click(function(){
+			$(".sidebar .list").append('<li><a href="#">Item list</a></li>');
+		})
+
+		//Change theme color
+		const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+		const currentTheme = localStorage.getItem('theme');
+
+		if (currentTheme) {
+			document.documentElement.setAttribute('data-theme', currentTheme);
+		
+			if (currentTheme === 'light') {
+				toggleSwitch.checked = true;
+			}
+		}
+
+		function switchTheme(e) {
+			if (e.target.checked) {
+				document.documentElement.setAttribute('data-theme', 'light');
+				localStorage.setItem('theme', 'light');
+			}
+			else {        document.documentElement.setAttribute('data-theme', 'dark');
+				localStorage.setItem('theme', 'dark');
+			}    
+		}
+
+		toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+	});
+</script>
+</html>
